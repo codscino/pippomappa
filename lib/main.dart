@@ -1,24 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_map_tile_caching/flutter_map_tile_caching.dart';
-import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'screens/main_screen.dart';
+import './screens/map_view.dart';
 import 'shared/general_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-    ),
-  );
-  //SharedPreferences.setMockInitialValues({});
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
   bool damagedDatabaseDeleted = false;
@@ -32,15 +21,6 @@ void main() async {
   if (prefs.getBool('reset') ?? false) {
     await FMTC.instance.rootDirectory.manage.reset();
   }
-
-  final File newAppVersionFile = File(
-    p.join(
-      // ignore: invalid_use_of_internal_member, invalid_use_of_protected_member
-      FMTC.instance.rootDirectory.directory.absolute.path,
-      'newAppVersion.${Platform.isWindows ? 'exe' : 'apk'}',
-    ),
-  );
-  if (await newAppVersionFile.exists()) await newAppVersionFile.delete();
 
   runApp(AppContainer(damagedDatabaseDeleted: damagedDatabaseDeleted));
 }
@@ -61,9 +41,8 @@ class AppContainer extends StatelessWidget {
           ),
         ],
         child: MaterialApp(
-          title: 'FMTC Example',
-          debugShowCheckedModeBanner: false,
-          home: MainScreen(damagedDatabaseDeleted: damagedDatabaseDeleted),
-        ),
+            title: 'FMTC Example',
+            debugShowCheckedModeBanner: false,
+            home: MapPage(damagedDatabaseDeleted: damagedDatabaseDeleted)),
       );
 }

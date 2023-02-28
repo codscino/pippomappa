@@ -10,7 +10,10 @@ import '../shared/general_provider.dart';
 class MapPage extends StatefulWidget {
   const MapPage({
     super.key,
+    required this.damagedDatabaseDeleted,
   });
+   
+   final bool damagedDatabaseDeleted;
 
   @override
   State<MapPage> createState() => _MapPageState();
