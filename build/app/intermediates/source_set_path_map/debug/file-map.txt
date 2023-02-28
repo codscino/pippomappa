@@ -1,0 +1,16 @@
+com.example.pippostate.app-jetified-window-1.0.0-beta04-0 /Users/claudioferrara/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/res
+com.example.pippostate.app-jetified-annotation-experimental-1.1.0-1 /Users/claudioferrara/.gradle/caches/transforms-3/6c0c163cc77ae6c91f9f7dfcd179c29c/transformed/jetified-annotation-experimental-1.1.0/res
+com.example.pippostate.app-core-1.6.0-2 /Users/claudioferrara/.gradle/caches/transforms-3/7e9df2ac2213a6bd3cef0f2f27870d79/transformed/core-1.6.0/res
+com.example.pippostate.app-jetified-window-java-1.0.0-beta04-3 /Users/claudioferrara/.gradle/caches/transforms-3/ae81e06d24c799147c26814497a2a305/transformed/jetified-window-java-1.0.0-beta04/res
+com.example.pippostate.app-jetified-startup-runtime-1.1.1-4 /Users/claudioferrara/.gradle/caches/transforms-3/d2a7f03e118140f639e8945afb58cddb/transformed/jetified-startup-runtime-1.1.1/res
+com.example.pippostate.app-debug-5 /Users/claudioferrara/dev/playground/pippomappa/android/app/src/debug/res
+com.example.pippostate.app-main-6 /Users/claudioferrara/dev/playground/pippomappa/android/app/src/main/res
+com.example.pippostate.app-pngs-7 /Users/claudioferrara/dev/playground/pippomappa/build/app/generated/res/pngs/debug
+com.example.pippostate.app-resValues-8 /Users/claudioferrara/dev/playground/pippomappa/build/app/generated/res/resValues/debug
+com.example.pippostate.app-rs-9 /Users/claudioferrara/dev/playground/pippomappa/build/app/generated/res/rs/debug
+com.example.pippostate.app-mergeDebugResources-10 /Users/claudioferrara/dev/playground/pippomappa/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.example.pippostate.app-mergeDebugResources-11 /Users/claudioferrara/dev/playground/pippomappa/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.example.pippostate.app-merged_res-12 /Users/claudioferrara/dev/playground/pippomappa/build/app/intermediates/merged_res/debug
+com.example.pippostate.app-packaged_res-13 /Users/claudioferrara/dev/playground/pippomappa/build/isar_flutter_libs/intermediates/packaged_res/debug
+com.example.pippostate.app-packaged_res-14 /Users/claudioferrara/dev/playground/pippomappa/build/path_provider_android/intermediates/packaged_res/debug
+com.example.pippostate.app-packaged_res-15 /Users/claudioferrara/dev/playground/pippomappa/build/shared_preferences_android/intermediates/packaged_res/debug
