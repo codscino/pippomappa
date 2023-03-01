@@ -12,14 +12,29 @@ class MapPage extends StatefulWidget {
     super.key,
     required this.damagedDatabaseDeleted,
   });
-   
-   final bool damagedDatabaseDeleted;
+
+  final bool damagedDatabaseDeleted;
 
   @override
   State<MapPage> createState() => _MapPageState();
 }
 
 class _MapPageState extends State<MapPage> {
+  @override
+  // dialog box database error
+  void initState() {
+    if (widget.damagedDatabaseDeleted) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('At least one corrupted database has been deleted.'),
+          ),
+        ),
+      );
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) => Consumer<GeneralProvider>(
         builder: (context, provider, _) => FutureBuilder<Map<String, String>?>(
@@ -41,15 +56,14 @@ class _MapPageState extends State<MapPage> {
                     ? metadata.data!['sourceURL']!
                     : 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 
-            return MaterialApp(
-                home: Scaffold(
+            return Scaffold(
                     body: Column(children: [
               Flexible(
                   child: FlutterMap(
                 options: MapOptions(
                   center: LatLng(51.509364, -0.128928),
-                  zoom: 9.2,
-                  maxZoom: 22,
+                  zoom: 9,
+                  maxZoom: 19,
                   maxBounds: LatLngBounds.fromPoints([
                     LatLng(-90, 180),
                     LatLng(90, 180),
@@ -58,7 +72,6 @@ class _MapPageState extends State<MapPage> {
                   ]),
                   interactiveFlags:
                       InteractiveFlag.all & ~InteractiveFlag.rotate,
-                  scrollWheelVelocity: 0.002,
                   keepAlive: true,
                 ),
                 nonRotatedChildren: [
@@ -72,19 +85,9 @@ class _MapPageState extends State<MapPage> {
                     tileProvider: provider.currentStore != null
                         ? FMTC.instance(provider.currentStore!).getTileProvider(
                               FMTCTileProviderSettings(
-                                behavior: CacheBehavior.values
-                                    .byName(metadata.data!['behaviour']!),
-                                cachedValidDuration: int.parse(
-                                          metadata.data!['validDuration']!,
-                                        ) ==
-                                        0
-                                    ? Duration.zero
-                                    : Duration(
-                                        days: int.parse(
-                                          metadata.data!['validDuration']!,
-                                        ),
-                                      ),
-                              ),
+                                  behavior: CacheBehavior.cacheFirst,
+                                  cachedValidDuration:
+                                      const Duration(days: 16)),
                             )
                         : NetworkNoRetryTileProvider(),
                     maxZoom: 22,
@@ -94,7 +97,7 @@ class _MapPageState extends State<MapPage> {
                   ),
                 ],
               ))
-            ])));
+            ]));
           },
         ),
       );
