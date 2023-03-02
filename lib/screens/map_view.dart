@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_tile_caching/flutter_map_tile_caching.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:provider/provider.dart';
 
 
 class MapPage extends StatefulWidget {
@@ -66,8 +65,8 @@ class _MapPageState extends State<MapPage> {
             tileProvider: widget.store.getTileProvider(
               FMTCTileProviderSettings(
                   behavior: CacheBehavior.cacheFirst,
-                  cachedValidDuration: const Duration(days: 16)),
-            ),
+                  cachedValidDuration: const Duration(days: 30)), //recache every month
+               ),
             maxZoom: 22,
             userAgentPackageName: 'dev.org.fmtc.example.app',
             panBuffer: 3,
