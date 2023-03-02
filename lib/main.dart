@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import './screens/map_view.dart';
-import 'shared/general_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,27 +21,27 @@ void main() async {
     await FMTC.instance.rootDirectory.manage.reset();
   }
 
-  runApp(AppContainer(damagedDatabaseDeleted: damagedDatabaseDeleted));
+  // store creation
+  final store = FMTC.instance('storeCazzo');
+  await store.manage.createAsync(); // Does nothing if the store already exists.
+
+  runApp(AppContainer(
+      damagedDatabaseDeleted: damagedDatabaseDeleted, store: store));
 }
 
 class AppContainer extends StatelessWidget {
-  const AppContainer({
-    super.key,
-    required this.damagedDatabaseDeleted,
-  });
+  const AppContainer(
+      {super.key, required this.damagedDatabaseDeleted, required this.store});
 
   final bool damagedDatabaseDeleted;
+  final store;
 
   @override
-  Widget build(BuildContext context) => MultiProvider(
-        providers: [
-          ChangeNotifierProvider<GeneralProvider>(
-            create: (context) => GeneralProvider(),
-          ),
-        ],
-        child: MaterialApp(
-            title: 'FMTC Example',
-            debugShowCheckedModeBanner: false,
-            home: MapPage(damagedDatabaseDeleted: damagedDatabaseDeleted)),
-      );
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'FMTC Example',
+        debugShowCheckedModeBanner: false,
+        home: MapPage(
+            damagedDatabaseDeleted: damagedDatabaseDeleted, store: store));
+  }
 }
