@@ -13,12 +13,40 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: StreamBuilder(
-      stream: widget.store.stats.watchChanges(),
-      builder: (context, _) {
-        return Center(child: Text('Cache size: ${widget.store.stats.storeSize}'));
-      },
-    ));
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        StreamBuilder(
+            stream: widget.store.stats.watchChanges(),
+            builder: (context, _) {
+              return Center(
+                // -16 because 16 is the min size of a store and i want to show the user a zero when it clears the cache
+                  child: Text('Cache size: ${widget.store.stats.storeSize-16}'));
+            }),
+        const SizedBox(height: 50),
+        StreamBuilder(
+            stream: widget.store.stats.watchChanges(),
+            builder: (context, _) {
+              return Center(
+                // -16 because 16 is the min size of a store and i want to show the user a zero when it clears the cache
+                  child: Text('Store length: ${widget.store.stats.storeLength}'));
+            }),
+        const SizedBox(height: 50),
+        SizedBox(
+          height: 50,
+          child: FloatingActionButton(
+            backgroundColor: Colors.red,
+            heroTag: 'f10',
+            onPressed: () {
+              widget.store.manage.reset();
+            },
+            child: const Icon(
+              Icons.delete_forever,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

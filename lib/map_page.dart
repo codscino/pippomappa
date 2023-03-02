@@ -3,7 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_tile_caching/flutter_map_tile_caching.dart';
 import 'package:latlong2/latlong.dart';
 
-
 class MapPage extends StatefulWidget {
   const MapPage(
       {super.key, required this.damagedDatabaseDeleted, required this.store});
@@ -33,9 +32,8 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    const String urlTemplate =
-        'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-        //'https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png';
+    const String urlTemplate = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+    //'https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png';
 
     return Scaffold(
         body: Column(children: [
@@ -65,8 +63,9 @@ class _MapPageState extends State<MapPage> {
             tileProvider: widget.store.getTileProvider(
               FMTCTileProviderSettings(
                   behavior: CacheBehavior.cacheFirst,
-                  cachedValidDuration: const Duration(days: 30)), //recache every month
-               ),
+                  cachedValidDuration: const Duration(days: 30), //recache every month
+                  maxStoreLength: 15000), //about 500mb
+            ),
             maxZoom: 22,
             userAgentPackageName: 'dev.org.fmtc.example.app',
             panBuffer: 3,
