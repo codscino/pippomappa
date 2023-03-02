@@ -64,7 +64,8 @@ class _MapPageState extends State<MapPage> {
               FMTCTileProviderSettings(
                   behavior: CacheBehavior.cacheFirst,
                   cachedValidDuration: const Duration(days: 30), //recache every month
-                  maxStoreLength: 15000), //about 500mb
+                  maxStoreLength: 15000), //less than 350mb, 
+                                          //deletes old tiles if max length is surpassed
             ),
             maxZoom: 22,
             userAgentPackageName: 'dev.org.fmtc.example.app',
