@@ -34,7 +34,13 @@ class _MyMapState extends State<MyMap> {
               ],
               children: [
                 TileLayer(
-                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  urlTemplate: 
+                  'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  //'https://mapserver.mapy.cz/base-en/{z}-{x}-{y}',          // base english
+                  // 'https://mapserver.mapy.cz/turist-en/{z}-{x}-{y}',       // outdoor english
+                  // 'https://mapserver.mapy.cz/winter-en-down/{z}-{x}-{y}',  // winter english
+                  // 'https://mapserver.mapy.cz/bing/{z}-{x}-{y}',            // satellite english
+                  
                   userAgentPackageName: 'dev.fleaflet.flutter_map.example',
                 ),
                 MarkerLayer(markers: markers),
