@@ -28,7 +28,7 @@ class _SettingsPageState extends State<SettingsPage> {
             stream: widget.store.stats.watchChanges(),
             builder: (context, _) {
               return Center(
-                // -16 because 16 is the min size of a store and i want to show the user a zero when it clears the cache
+               // number of tiles
                   child: Text('Store length: ${widget.store.stats.storeLength}'));
             }),
         const SizedBox(height: 50),

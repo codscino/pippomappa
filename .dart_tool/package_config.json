@@ -32,12 +32,6 @@
       "languageVersion": "2.18"
     },
     {
-      "name": "cupertino_icons",
-      "rootUri": "file:///Users/claudioferrara/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.5",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "fake_async",
       "rootUri": "file:///Users/claudioferrara/.pub-cache/hosted/pub.dev/fake_async-1.3.1",
       "packageUri": "lib/",
@@ -170,12 +164,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "nested",
-      "rootUri": "file:///Users/claudioferrara/.pub-cache/hosted/pub.dev/nested-1.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "path",
       "rootUri": "file:///Users/claudioferrara/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
@@ -250,12 +238,6 @@
     {
       "name": "proj4dart",
       "rootUri": "file:///Users/claudioferrara/.pub-cache/hosted/pub.dev/proj4dart-2.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "provider",
-      "rootUri": "file:///Users/claudioferrara/.pub-cache/hosted/pub.dev/provider-6.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -404,7 +386,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-03-08T19:55:30.607673Z",
+  "generated": "2023-03-09T17:06:33.703699Z",
   "generator": "pub",
   "generatorVersion": "3.0.0-277.0.dev"
 }
