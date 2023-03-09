@@ -67,7 +67,7 @@ class _MapPageState extends State<MapPage> {
                   maxStoreLength: 15000), //less than 350mb, 
                                           //deletes old tiles if max length is surpassed
             ),
-            maxZoom: 22,
+            maxZoom: 19,
             userAgentPackageName: 'dev.org.fmtc.example.app',
             panBuffer: 3,
             backgroundColor: const Color(0xFFaad3df),
